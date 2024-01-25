@@ -1,17 +1,28 @@
-// Your program should start at this line.
-/*
-Example:
-Move();
-Move();
-Move();
-Turn();
-Move();
-Move();
-Turn();
-Turn();
-Turn();
-Move();
-*/
+bool[,] visited = new bool [gridWidth, gridHeight];
+
+while (!AtGoal)
+{
+    if (Peek())
+    {
+        Move();
+        visited[CurrentX, CurrentY] = true;
+    }
+
+    else if (VisitedPreviously(CurrentX, CurrentY))
+    {
+        Turn();
+    }
+
+    else
+    {
+        Turn();
+    }
+}
+
+bool VisitedPreviously(int x, int y)
+{
+    return visited[x, y];
+}
 
 
 #region Basic functions
